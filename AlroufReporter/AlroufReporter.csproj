@@ -5,10 +5,29 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Images\alrouf-favicon-large.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Images\" />
+    <None Remove="Images\logo-color.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\alrouf-favicon-large.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IronXL.Excel" Version="2022.12.11262" />
+    <PackageReference Include="MongoDB.Bson" Version="2.18.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.18.0" />
+    <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
+    <PackageReference Include="PdfPig" Version="0.1.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\logo-color.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

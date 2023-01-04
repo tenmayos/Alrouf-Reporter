@@ -12,8 +12,8 @@
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
-            <!-- Added one more just incase it was needed. -->
             <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -21,9 +21,75 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
+
+        <Image
+            Grid.Column="5"
+            Grid.Row="1"
+            Source="/Images/logo-color.png"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Margin="20"
+            />
+        <TextBlock
+            Grid.Column="5"
+            Grid.Row="2"
+            FontSize="25"
+            Text="اختر معيار الترتيب"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            Margin="5"
+            />
+        <ComboBox 
+            Grid.Column="5"
+            HorizontalAlignment="Left" 
+            Margin="421,0,0,0" Grid.Row="2" 
+            VerticalAlignment="Center"
+            Width="120"
+            x:Name="SortCriteria"
+            >
+            <ComboBoxItem x:Name="Names" Content="الاسماء"/>
+            <ComboBoxItem x:Name="Emails" Content="البريد الالكتروني"/>
+            <ComboBoxItem x:Name="Phones" Content="الهاتف"/>
+            <ComboBoxItem x:Name="Uni" Content="الجامعة"/>
+            <ComboBoxItem x:Name="Gpa" Content="المعدل"/>
+            <ComboBoxItem x:Name="Vol" Content="الاعمال التطوعية"/>
+        </ComboBox>
+        <TextBlock
+            Grid.Column="5"
+            Grid.Row="3"
+            FontSize="22"
+            Text="هل تود استخراج البيانات من قاعدة البيانات؟" 
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            />
+        <CheckBox Grid.Column="5"
+                  HorizontalAlignment="Left"
+                  Margin="326,0,0,0" 
+                  Grid.Row="3" 
+                  VerticalAlignment="Center"
+                  x:Name="ShouldQueryFromDB"
+                  />
+        <Button
+            Grid.Column="5"
+            Grid.Row="4"
+            Content="اختر المجلد" 
+            Margin="576,10,10,-34" 
+            Click="OnChooseFolderClick" />
+        <Button
+            Grid.Column="5"
+            Grid.Row="4" 
+            Content="اصنع التقرير"
+            Margin="276,149,276,-232"
+            Click="OnCreateReportClick"
+            />
+        <Button 
+            Grid.Column="5"
+            Grid.Row="4"
+            Content="اختر مكان حفظ التقرير"
+            Margin="576,93,10,-117"
+            Click="OnChoosePathClick"
+            />
     </Grid>
 </Window>
