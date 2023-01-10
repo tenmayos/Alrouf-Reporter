@@ -1,11 +1,12 @@
 ﻿using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 
 namespace DJPaissa.HelperMethods
 {
     public static class MongoCRUD
     {
-        private static IMongoDatabase db = new MongoClient().GetDatabase("applicantsDB");
+        private static MongoClient db = new MongoClient(new MongoClientSettings { ConnectTimeout = TimeSpan.FromSeconds(10) });
 
         /// <summary>
         /// Loads all the records found in the specified database (applicantsDB) and returns a list of type <T>
@@ -15,8 +16,17 @@ namespace DJPaissa.HelperMethods
         /// <returns></returns>
         public static List<T> LoadAllRecords<T>(string table = "applicants")
         {
-            var collection = db.GetCollection<T>(table).FindSync(val => true);
-            return collection.ToList();
+            try
+            {
+                var collection = db.GetDatabase("applicantsDB").GetCollection<T>(table).FindSync(val => true);
+                return collection.ToList();
+            }
+            catch (Exception)
+            {
+                System.Windows.MessageBox.Show("عفوا لم يتم العثور على قاعدة البيانات");
+                return new List<T>();
+            }
+            
         }
 
     }

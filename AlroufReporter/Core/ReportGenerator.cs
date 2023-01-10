@@ -47,6 +47,7 @@ namespace AlroufReporter.Core
                 default:
                     throw new System.Exception("The sort criteria is invalid, please contact the Author of this program");
             }
+            Save();
         }
 
         public void GenerateFromList(List<string> dataList)
@@ -55,7 +56,6 @@ namespace AlroufReporter.Core
             {
                 XlsxSheet[$"A{i + 1}"].Value = dataList[i];
             }
-            Save();
         }
 
         public void GenerateFromStrDictionary(Dictionary<string, string> dataDic)
@@ -70,7 +70,6 @@ namespace AlroufReporter.Core
                 XlsxSheet[$"B{count}"].Value = piece.Value;
                 count++;
             }
-            Save();
         }
         public void GenerateFromStrDictionary(Dictionary<string, bool> dataDic)
         {
@@ -82,20 +81,23 @@ namespace AlroufReporter.Core
                 XlsxSheet[$"B{count}"].Value = piece.Value;
                 count++;
             }
-            Save();
         }
 
         public void Save()
         {
             try
             {
-                XlsxWorkbook.SaveAs($"{ReportPath}\\AlroufReport.xlsx");
+                if (!Data.ShouldAbort)
+                {
+                    XlsxWorkbook.SaveAs($"{ReportPath}\\AlroufReport.xlsx");
+                    System.Windows.MessageBox.Show($"تم حفظ التقرير في - {ReportPath}");
+                }
             }
             catch (System.Exception)
             {
                 // Catching a method this way is incorrect as this exception is not precisely of the correct type and we are only relying on the message for clarification
                 // Which may not infact be correct nor accurate.
-                throw new System.Exception("عفوا يجب اغلاق التقرير السابق اولا");
+                System.Windows.MessageBox.Show("عفوا يجب اغلاق التقرير السابق اولا");
             }
         }
     }

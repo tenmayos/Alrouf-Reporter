@@ -18,6 +18,7 @@ namespace AlroufReporter.Core.QueryHandlers
         public Dictionary<string, string> CandidatesGpa { get; }
         public Dictionary<string, string> CandidatesUniversity { get; }
         public Dictionary<string, bool> CandidatesVolunteerActivities { get; }
+        public bool ShouldAbort { get; set; }
         public DatabaseQuery(SortingTypes criteria)
         {
             Criteria = criteria;
@@ -29,6 +30,10 @@ namespace AlroufReporter.Core.QueryHandlers
             CandidatesVolunteerActivities = new Dictionary<string, bool>();
 
             AllCandidates = MongoCRUD.LoadAllRecords<CandidateModel>();
+
+            if (AllCandidates.Count == 0)
+                ShouldAbort = true;
+
             FillAndSortNames();
             FillDictionaries();
         }

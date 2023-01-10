@@ -108,16 +108,6 @@ namespace AlroufReporter
             {
                 DatabaseQuery dbq = new DatabaseQuery(criteria);
                 ReportGenerator gen = new ReportGenerator(reportPath, dbq);
-                try
-                {
-                    gen.Generate();
-                }
-                catch (Exception ex)
-                {
-
-                    System.Windows.MessageBox.Show(ex.Message);
-                }
-                
             }
 
             if (files != null)
@@ -125,15 +115,6 @@ namespace AlroufReporter
                 if (criteria == SortingTypes.Name || criteria == SortingTypes.Email || criteria == SortingTypes.VoluntaryWork)
                 {
                     ReportGenerator gen = new ReportGenerator(reportPath, new LocalQuery(criteria, files));
-                    try
-                    {
-                        gen.Generate();
-                    }
-                    catch (Exception ex)
-                    {
-
-                        System.Windows.MessageBox.Show(ex.Message);
-                    }
                 }
                 else
                 {
@@ -142,8 +123,6 @@ namespace AlroufReporter
                 }
 
             }
-
-            System.Windows.MessageBox.Show($"تم حفظ التقرير في - {reportPath}");
         }
     }
 }

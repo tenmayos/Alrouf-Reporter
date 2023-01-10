@@ -29,6 +29,8 @@ namespace AlroufReporter.Core.QueryHandlers
 
         public Dictionary<string, bool> CandidatesVolunteerActivities { get; }
 
+        public bool ShouldAbort { get; }
+
         public LocalQuery(SortingTypes criteria, string[] filePaths)
         {
             Criteria = criteria;

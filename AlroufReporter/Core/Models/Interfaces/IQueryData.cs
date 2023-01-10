@@ -12,5 +12,6 @@ namespace AlroufReporter.Core.Models.Interfaces
         public Dictionary<string, string> CandidatesGpa { get; }
         public Dictionary<string, string> CandidatesUniversity { get; }
         public Dictionary<string, bool> CandidatesVolunteerActivities { get; }
+        public bool ShouldAbort { get; }
     }
 }
