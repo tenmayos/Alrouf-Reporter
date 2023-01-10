@@ -23,20 +23,24 @@ This is the raw source code for the application, therefore it is not compiled an
 ## How to use
 
 1. Once we have the project open in `Visual Studio` we can simply run it in debug mode by pressing `F5` or build it using `Ctrl + B` and run it through the compiled version in /bin/debug/net6.0-windows/AlroufReporter.exe
-    * If all goes well the following window should show up ![Main Window](/Ref_Images/mainwindow.png)
+    * If all goes well the following window should show up
+     * ![Main Window](/Ref_Images/mainwindow.png)
 
 2. We can set the criteria and make the necessary choices, we must choose a path to save the report
     * a window should pop up and we must choose where we want to save the report.
-    ![Choose path](/Ref_Images/ChooseReportPath.png)
+     * ![Choose path](/Ref_Images/ChooseReportPath.png)
 
 3. Now we can press the main button to generate a sorted report with the chosen criteria.
-    * Upon pressing the main generate button the following message box displays to indicate success. ![Report Saved](/Ref_Images/ReportSaved.png)
+    * Upon pressing the main generate button the following message box displays to indicate success. 
+     * ![Report Saved](/Ref_Images/ReportSaved.png)
 
 4. It is also possible to repeat the process with a folder containing PDF CV files however not all criterias can be used as some are more complex to extract out of the raw PDF file.
 
-5. We can now navigate to the folder we specified to find an excel report generated ![Generated report icon](/Ref_Images/reportgenerated.png)
+5. We can now navigate to the folder we specified to find an excel report generated
+    * ![Generated report icon](/Ref_Images/reportgenerated.png)
 
-6. Inside the report should look like the following. ![example report](/Ref_Images/examplereport.png)
+6. Inside the report should look like the following.
+ * ![example report](/Ref_Images/examplereport.png)
 
 It is possible to use this tool without MongoDB installed, however is not recommended.
 To use the database option please make sure MongoDB is installed on the local host with the default ports.
